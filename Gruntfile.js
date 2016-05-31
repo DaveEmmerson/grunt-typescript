@@ -152,8 +152,7 @@ module.exports = function(grunt){
             "async": {
                 src: "test/fixtures/async.ts",
                 options: {
-                    target: "ES6",
-                    experimentalAsyncFunctions: true
+                    target: "ES6"
                 }
             },
             "references": {
@@ -359,7 +358,7 @@ module.exports = function(grunt){
             return execTsc("React Jsx", "test/fixtures/jsxreact.tsx --jsx react");
         }).then(function(){
             grunt.file.copy("test/fixtures/jsxreact.js", "test/expected/jsxreact.js");
-            return execTsc("Async", "test/fixtures/async.ts --experimentalAsyncFunctions -t ES6");
+            return execTsc("Async", "test/fixtures/async.ts -t ES6");
         }).then(function(){
             grunt.file.copy("test/fixtures/async.js", "test/expected/async.js");
             done(true);
